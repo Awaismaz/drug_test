@@ -26,10 +26,6 @@ def donor_form(request):
         form = DonorForm()
     return render(request, 'drugtest/donor_form.html', {'form': form})
 
-def clinical(request):
-    # Logic for Clinical path
-    return render(request, 'drugtest/clinical.html')
-
 def drug_screen(request):
     # Logic for Drug Screen path
     return render(request, 'drugtest/drug_screen.html')
