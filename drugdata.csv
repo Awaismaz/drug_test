@@ -1,0 +1,102 @@
+﻿DRUG CLASS,SUBDRUG,Description,BLOOD,URINE,ORAL FLUIDS,HAIR
+1000,,Amphetamines,0,1,1,1
+1000,1100,Amphetamine,0,1,1,1
+1000,1200,MethAmphetamine,0,1,1,1
+1000,1300,MDA,0,0,1,1
+1000,1400,MDMA,0,0,1,1
+1000,1500,MDEA,0,0,1,1
+2000,,Barbiturates,0,1,0,0
+2000,2100,Butalbital,0,1,0,0
+2000,2200,Amobarbital,0,1,0,0
+2000,2300,Pentobarbital,0,1,0,0
+2000,2400,Secobarbital,0,1,0,0
+2000,2500,Phenobarbital,0,1,0,0
+3000,,Cocaine Metab.,0,1,1,1
+3000,3100,Cocaine,0,0,1,1
+3000,3200,Benzoylecgonine,0,0,1,1
+3000,3300,Cocaethylene,0,0,0,1
+3000,3400,Norcocaine,0,0,0,1
+4000,,Marijuana Metab.,0,1,1,1
+5000,,Methaqualone,0,1,0,0
+6000,,Opiates,0,1,1,1
+6000,6100,Codeine,0,1,1,1
+6000,6200,Morphine,0,1,1,1
+6000,6300,Hydromorphone,0,1,0,0
+6000,6400,Hydrocodone,0,1,0,0
+7000,,Phencyclidine,0,1,1,1
+8000,,Benzodiazepines,0,1,0,0
+8000,8100,N-desmethyldiazepam,0,1,0,0
+8000,8200,Oxazepam,0,1,0,0
+8000,8300,A-OH-Alprazolam,0,1,0,0
+8000,8400,Flurazepam,0,1,0,0
+8000,8500,Lorazepam,0,1,0,0
+8000,8600,Clonazepam,0,1,0,0
+8000,8700,Temazepam,0,1,0,0
+8000,8800,Triazolam,0,1,0,0
+8000,8900,Midazolam,0,1,0,0
+9000,,Methadone,0,1,1,0
+9000,9100,Methadone,0,0,1,0
+9000,9200,EDDP,0,0,1,0
+10000,,MDMA,0,1,0,0
+10000,10100,MDA,0,1,0,0
+10000,10200,MDMA,0,1,0,0
+10000,10300,MDEA,0,1,0,0
+11000,,Propoxyphene,0,1,0,0
+12000,,Glutethimide,0,1,0,0
+13000,,Oxidant,0,1,0,0
+14000,,Meperidine,0,1,0,0
+14000,14100,Meperidine,0,1,0,0
+14000,14200,Normeperidine,0,1,0,0
+15000,,Oxycodone,0,1,0,0
+15000,15100,Oxycodone,0,1,0,0
+15000,15200,Oxymorphone,0,1,0,0
+16000,,Pentazocine ,0,1,0,0
+17000,,Phenytoin,0,1,0,0
+18000,,Tramadol,0,1,0,0
+19000,,Phenothiazines,0,1,0,0
+20000,,Chloride,0,1,0,0
+21000,,Chromate,0,1,0,0
+22000,,Cotinine,0,1,0,0
+23000,,Blood Alcohol,1,0,0,0
+24000,,Alcohol,0,1,1,0
+25000,,Creatinine,0,1,0,0
+26000,,PH,0,1,0,0
+27000,,Specific Gravity,0,1,0,0
+28000,,Glucose,0,1,0,0
+29000,,MonoAcetyl Morphine,0,1,1,1
+30000,,L/D MethAmphetamine Ratio,0,1,0,0
+40000,,Nitrite,0,1,0,0
+50000,,Glutaraldehyde,0,1,0,0
+51000,,Buprenorphine,0,1,1,0
+51000,51100,Buprenorphine,0,1,1,0
+51000,51200,Norbuprenorphine,0,1,1,0
+52000,,Ethyl Glucuronide,0,1,0,0
+52000,52100,Ethyl Glucuronide,0,1,0,0
+52000,52200,Ethyl Sulfate,0,1,0,0
+53000,,Fentanyl,0,1,0,0
+53000,53100,Fentanyl,0,1,0,0
+53000,53200,Norfentanyl,0,1,0,0
+54000,,EDDP,0,1,0,0
+55000,,Meprobamate (Carisoprodol),0,1,0,0
+56000,,Tapentadol,0,1,0,0
+60000,,Surfactant,0,1,0,0
+61000,,Marijuana (THC),0,0,1,0
+66000,,Codeine/Morphine,0,1,0,0
+66000,66100,Codeine,0,1,0,0
+66000,66200,Morphine,0,1,0,0
+69000,,HYC/HYM,0,1,0,0
+69000,69100,Hydrocodone,0,1,0,0
+69000,69200,Hydromorphone,0,1,0,0
+70000,,MDMA/MDA,0,1,0,0
+70000,70100,MDA,0,1,0,0
+70000,70200,MDMA,0,1,0,0
+71000,,OXYC/OXYM,0,1,0,0
+71000,71100,Oxycodone,0,1,0,0
+71000,71200,Oxymorphone,0,1,0,0
+72000,,6-Acetylmorphine,0,1,0,0
+73000,,AMP/MAMP,0,1,0,0
+73000,73100,Amphetamine,0,1,0,0
+73000,73200,Methamphetamine,0,1,0,0
+74000,,Cocaine metabolite,0,1,0,0
+75000,,THCA,0,1,0,0
+76000,,PCP,0,1,0,0

@@ -1,0 +1,3623 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ws.ots.labcorp.com" xmlns:impl="http://ws.ots.labcorp.com" xmlns:intf="http://ws.ots.labcorp.com" xmlns:tns2="http://data.ws.ots.labcorp.com" xmlns:tns3="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ws.ots.labcorp.com">
+   <import namespace="http://data.ws.ots.labcorp.com"/>
+   <element name="destinationGetAll">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationGetAllResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="destinationGetAllReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configAccountGetAll">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="configuration" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configAccountGetAllResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="configAccountGetAllReturn" type="tns2:UserAccount"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationActivate">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="destinationId" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationActivateResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="locateCollectionSites2">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="zip" nillable="true" type="xsd:string"/>
+      <element name="distance" type="xsd:int"/>
+      <element name="vendor" nillable="true" type="xsd:string"/>
+      <element name="type" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="locateCollectionSites2Response">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="locateCollectionSites2Return" type="tns2:CollectionSite2"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationAccountGetAll">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="destinationId" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationAccountGetAllResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="destinationAccountGetAllReturn" type="tns2:DestinationAccount"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="completeCollection2">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="labcorpRegistrationNumber" type="xsd:int"/>
+      <element name="collection" nillable="true" type="tns2:CollectionRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="completeCollection2Response">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="destinationModify">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="destination" nillable="true" type="tns2:Destination"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationModifyResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="configContractDelete">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="configuration" nillable="true" type="xsd:string"/>
+      <element name="contractNumber" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configContractDeleteResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="matchSites">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="zipCode" nillable="true" type="xsd:string"/>
+      <element name="searchRadius" nillable="true" type="xsd:int"/>
+      <element name="maxMatches" nillable="true" type="xsd:int"/>
+      <element name="matchSite" nillable="true" type="tns2:MatchSitesRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="matchSitesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="matchSitesReturn" type="tns2:MatchSitesResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userGetAll">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userGetAllResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="userGetAllReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="specimenCoc">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="accessionNumber" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="specimenCocResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="specimenCocReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="changePassword">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="newPassword" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="changePasswordResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="destinationChangePassword">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="destinationId" nillable="true" type="xsd:string"/>
+      <element name="newPassword" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationChangePasswordResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="configContractGetAll">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="configuration" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configContractGetAllResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="configContractGetAllReturn" type="tns2:UserContract"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSpecimenID">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSpecimenIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getSpecimenIDReturn" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationDeactivate">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="destinationId" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationDeactivateResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="destinationAccountModify">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="destinationAccount" nillable="true" type="tns2:DestinationAccount"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationAccountModifyResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="destinationAccountAdd">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="destinationAccount" nillable="true" type="tns2:DestinationAccount"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationAccountAddResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="registerDonors">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element maxOccurs="unbounded" minOccurs="0" name="registrations" type="tns2:CreateRegistrationRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerDonorsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="registerDonorsReturn" type="tns2:RegistrationResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyRegistration">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="registration" nillable="true" type="tns2:ModifyRegistrationRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="modifyRegistrationResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="destinationGet">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="destinationId" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationGetResponse">
+    <complexType>
+     <sequence>
+      <element name="destinationGetReturn" nillable="true" type="tns2:Destination"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configContractAdd">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="configuration" nillable="true" type="xsd:string"/>
+      <element name="contractNumber" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configContractAddResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="getSpecimenAccount">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="specimenId" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSpecimenAccountResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="getSpecimenAccountReturn" type="tns2:SpecimenAccount"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="resend">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="type" type="xsd:int"/>
+      <element name="labcorpRegistrationNumber" type="xsd:int"/>
+      <element name="specimenId" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="resendResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="userResetPassword">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="userId2" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userResetPasswordResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="getAccountDetails">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="accountNumber" nillable="true" type="xsd:string"/>
+      <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccountDetailsResponse">
+    <complexType>
+     <sequence>
+      <element name="getAccountDetailsReturn" nillable="true" type="tns2:AccountDetails"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMroResult">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="accessionNumber" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMroResultResponse">
+    <complexType>
+     <sequence>
+      <element name="getMroResultReturn" nillable="true" type="tns2:MroResult"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configAccountAdd">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="configuration" nillable="true" type="xsd:string"/>
+      <element name="accountNumber" nillable="true" type="xsd:string"/>
+      <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configAccountAddResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="searchRegistrations">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="search" nillable="true" type="tns2:RegistrationSearchRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchRegistrationsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="searchRegistrationsReturn" type="tns2:RegistrationSearchResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userGet">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="userId2" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userGetResponse">
+    <complexType>
+     <sequence>
+      <element name="userGetReturn" nillable="true" type="tns2:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCollectionSite">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="siteId" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCollectionSiteResponse">
+    <complexType>
+     <sequence>
+      <element name="getCollectionSiteReturn" nillable="true" type="tns2:CollectionSite"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userModify">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="user" nillable="true" type="tns2:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userModifyResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="getRegistrationConfirmation">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="labcorpRegistrationNumber" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRegistrationConfirmationResponse">
+    <complexType>
+     <sequence>
+      <element name="getRegistrationConfirmationReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteRegistration">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="labcorpRegistrationNumber" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteRegistrationResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="registerDonor2">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="registration" nillable="true" type="tns2:CreateRegistrationRequest"/>
+      <element name="collectionSiteId" nillable="true" type="xsd:string"/>
+      <element name="vendor" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerDonor2Response">
+    <complexType>
+     <sequence>
+      <element name="registerDonor2Return" nillable="true" type="tns2:RegistrationResponse2"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerDonor">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="registration" nillable="true" type="tns2:CreateRegistrationRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerDonorResponse">
+    <complexType>
+     <sequence>
+      <element name="registerDonorReturn" nillable="true" type="tns2:RegistrationResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationAccountDelete">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="accountId" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="destinationAccountDeleteResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="completeCollection">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="registration" nillable="true" type="tns2:CreateRegistrationRequest"/>
+      <element name="collection" nillable="true" type="tns2:CollectionRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="completeCollectionResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="specimenGetAll">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="fromTime" nillable="true" type="xsd:dateTime"/>
+      <element name="toTime" nillable="true" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="specimenGetAllResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="specimenGetAllReturn" type="tns2:SpecimenStatus"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPanelDetails">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="panelId" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPanelDetailsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="getPanelDetailsReturn" type="tns2:PanelDetails"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchAccounts">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="account" nillable="true" type="tns2:AccountSearchRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchAccountsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="searchAccountsReturn" type="tns2:AccountSearchResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="locateCollectionSites">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="zip" nillable="true" type="xsd:string"/>
+      <element name="distance" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="locateCollectionSitesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="locateCollectionSitesReturn" type="tns2:CollectionSite"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configAccountDelete">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="configuration" nillable="true" type="xsd:string"/>
+      <element name="accountNumber" nillable="true" type="xsd:string"/>
+      <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="configAccountDeleteResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="specimenResult">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="accessionNumber" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="specimenResultResponse">
+    <complexType>
+     <sequence>
+      <element name="specimenResultReturn" nillable="true" type="tns2:Result"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="summaryReport">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="summary_id" nillable="true" type="xsd:string"/>
+      <element name="year" type="xsd:int"/>
+      <element name="month" type="xsd:int"/>
+      <element name="period" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="summaryReportResponse">
+    <complexType>
+     <sequence>
+      <element name="summaryReportReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="completeCollection3">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="labcorpRegistrationNumber" type="xsd:int"/>
+      <element name="collection" nillable="true" type="tns2:CollectionRequest"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="completeCollection3Response">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="getRegistrationDetails">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="labcorpRegistrationNumber" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getRegistrationDetailsResponse">
+    <complexType>
+     <sequence>
+      <element name="getRegistrationDetailsReturn" nillable="true" type="tns2:GetRegistrationResponse"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="collectionSiteSearch">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="siteSearch" nillable="true" type="tns2:CollectionSiteSearch"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="collectionSiteSearchResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="collectionSiteSearchReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="echo">
+    <complexType>
+     <sequence>
+      <element name="s" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="echoResponse">
+    <complexType>
+     <sequence>
+      <element name="echoReturn" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setMroResult">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="result" nillable="true" type="tns2:MroResult"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="setMroResultResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://data.ws.ots.labcorp.com">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <complexType name="WsException">
+    <sequence>
+     <element name="message" nillable="true" type="xsd:string"/>
+     <element maxOccurs="unbounded" name="errors" nillable="true" type="tns2:ValidationError"/>
+    </sequence>
+   </complexType>
+   <complexType name="ValidationError">
+    <sequence>
+     <element name="errorCode" type="xsd:int"/>
+     <element name="errorDescription" nillable="true" type="xsd:string"/>
+     <element name="errorElement" nillable="true" type="xsd:string"/>
+     <element name="errorIndex" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="WsException" nillable="true" type="tns2:WsException"/>
+   <complexType name="UserAccount">
+    <sequence>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     <element name="lastChangeTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="lastChangeUser" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CollectionSite2">
+    <complexContent>
+     <extension base="tns2:CollectionSite">
+      <sequence>
+       <element name="vendorSiteId" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CollectionSite">
+    <sequence>
+     <element name="address1" nillable="true" type="xsd:string"/>
+     <element name="address2" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="distance" type="xsd:double"/>
+     <element name="phoneNumber" nillable="true" type="tns2:Phone"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="zip" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteId" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteName" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Phone">
+    <sequence>
+     <element name="areaCode" nillable="true" type="xsd:string"/>
+     <element name="countryCode" nillable="true" type="xsd:string"/>
+     <element name="exchange" nillable="true" type="xsd:string"/>
+     <element name="extension" nillable="true" type="xsd:string"/>
+     <element name="station" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="DestinationAccount">
+    <sequence>
+     <element name="contractNumber" nillable="true" type="xsd:string"/>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     <element name="resultPositive" nillable="true" type="xsd:boolean"/>
+     <element name="resultNegative" nillable="true" type="xsd:boolean"/>
+     <element name="resultAbnormal" nillable="true" type="xsd:boolean"/>
+     <element name="resultCanceled" nillable="true" type="xsd:boolean"/>
+     <element name="cocPositive" nillable="true" type="xsd:boolean"/>
+     <element name="cocNegative" nillable="true" type="xsd:boolean"/>
+     <element name="cocAbnormal" nillable="true" type="xsd:boolean"/>
+     <element name="cocCanceled" nillable="true" type="xsd:boolean"/>
+     <element name="status" nillable="true" type="xsd:boolean"/>
+     <element name="lastChangeTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="lastChangeUser" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="destinationId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CollectionRequest">
+    <sequence>
+     <element name="collectorNameFirst" nillable="true" type="xsd:string"/>
+     <element name="donorIdentifiedby" nillable="true" type="xsd:string"/>
+     <element name="donorRefusedtoTest" nillable="true" type="xsd:boolean"/>
+     <element name="collectorNameMiddleInitial" nillable="true" type="xsd:string"/>
+     <element name="withinTemperatureRange" nillable="true" type="xsd:boolean"/>
+     <element name="temperature" nillable="true" type="xsd:int"/>
+     <element name="collectedFromHead" nillable="true" type="xsd:boolean"/>
+     <element name="deviceExpirationDate" nillable="true" type="xsd:dateTime"/>
+     <element name="collectorNameLast" nillable="true" type="xsd:string"/>
+     <element name="noSpecimenProvided" nillable="true" type="xsd:boolean"/>
+     <element name="collectionCompletedDateTime" nillable="true" type="xsd:dateTime"/>
+     <element name="splitSpecimenCollected" nillable="true" type="xsd:boolean"/>
+     <element name="collectorRemarks" nillable="true" type="xsd:string"/>
+     <element name="collectionObserved" nillable="true" type="xsd:boolean"/>
+     <element name="POCTResults" nillable="true" type="xsd:string"/>
+     <element name="deviceLotNumber" nillable="true" type="xsd:string"/>
+     <element name="specimenID" nillable="true" type="xsd:string"/>
+     <element name="specimenType" nillable="true" type="xsd:string"/>
+     <element name="deliveryService" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteID" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Destination">
+    <sequence>
+     <element name="destinationId" nillable="true" type="xsd:string"/>
+     <element name="url" nillable="true" type="xsd:string"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+     <element name="company" nillable="true" type="xsd:string"/>
+     <element name="contactName" nillable="true" type="xsd:string"/>
+     <element name="contactEmail" nillable="true" type="xsd:string"/>
+     <element name="contactPhone" nillable="true" type="xsd:string"/>
+     <element name="lastChangeTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="lastChangeUser" nillable="true" type="xsd:string"/>
+     <element name="disabledTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="disabledUser" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="MatchSitesRequest">
+    <sequence>
+     <element name="breathAlcohol" nillable="true" type="xsd:boolean"/>
+     <element name="salivaAlcohol" nillable="true" type="xsd:boolean"/>
+     <element name="urineDrugs" nillable="true" type="xsd:boolean"/>
+     <element name="radar" nillable="true" type="xsd:boolean"/>
+     <element name="hair" nillable="true" type="xsd:boolean"/>
+     <element name="bloodDrugs" nillable="true" type="xsd:boolean"/>
+     <element name="webCOC" nillable="true" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+   <complexType name="MatchSitesResponse">
+    <sequence>
+     <element name="distance" type="xsd:double"/>
+     <element name="address1" nillable="true" type="xsd:string"/>
+     <element name="address2" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="zip" nillable="true" type="xsd:string"/>
+     <element name="phoneNumber" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteName" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteId" nillable="true" type="xsd:string"/>
+     <element name="daysofOperation" nillable="true" type="xsd:string"/>
+     <element name="hoursofOperation" nillable="true" type="xsd:string"/>
+     <element name="breathAlcohol" nillable="true" type="xsd:boolean"/>
+     <element name="salivaAlcohol" nillable="true" type="xsd:boolean"/>
+     <element name="urineDrugs" nillable="true" type="xsd:boolean"/>
+     <element name="radar" nillable="true" type="xsd:boolean"/>
+     <element name="hair" nillable="true" type="xsd:boolean"/>
+     <element name="bloodDrugs" nillable="true" type="xsd:boolean"/>
+     <element name="webCOC" nillable="true" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+   <complexType name="UserContract">
+    <sequence>
+     <element name="contractNumber" nillable="true" type="xsd:string"/>
+     <element name="lastChangeTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="lastChangeUser" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="CreateRegistrationRequest">
+    <complexContent>
+     <extension base="tns2:RegistrationRequest">
+      <sequence>
+       <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+       <element name="accountNumber" nillable="true" type="xsd:string"/>
+       <element name="testingAuthority" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="RegistrationRequest">
+    <sequence>
+     <element name="clientRegistrationId" nillable="true" type="xsd:string"/>
+     <element name="clinicInfo" nillable="true" type="xsd:string"/>
+     <element name="deptIDRandomTestCode" nillable="true" type="xsd:string"/>
+     <element name="donorAdditionalIdentifier" nillable="true" type="xsd:string"/>
+     <element name="donorDateOfBirth" nillable="true" type="xsd:dateTime"/>
+     <element name="donorDayPhone" nillable="true" type="tns2:Phone"/>
+     <element name="donorEvePhone" nillable="true" type="tns2:Phone"/>
+     <element name="donorHackNumber" nillable="true" type="xsd:string"/>
+     <element name="donorId" nillable="true" type="xsd:string"/>
+     <element name="cdl_state" nillable="true" type="xsd:string"/>
+     <element name="cdl_number" nillable="true" type="xsd:string"/>
+     <element name="donorLicenseExpirationDate" nillable="true" type="xsd:dateTime"/>
+     <element name="donorNameFirst" nillable="true" type="xsd:string"/>
+     <element name="donorNameLast" nillable="true" type="xsd:string"/>
+     <element name="donorNameMiddleInitial" nillable="true" type="xsd:string"/>
+     <element name="donorReasonForTest" nillable="true" type="xsd:string"/>
+     <element name="donorSex" nillable="true" type="xsd:string"/>
+     <element name="donorSSN" nillable="true" type="xsd:string"/>
+     <element name="donorStateOfResidence" nillable="true" type="xsd:string"/>
+     <element name="observedCollectionRequested" nillable="true" type="xsd:boolean"/>
+     <element maxOccurs="unbounded" name="panelId" nillable="true" type="xsd:string"/>
+     <element name="paroleOfficer" nillable="true" type="xsd:string"/>
+     <element name="physicianId" nillable="true" type="xsd:string"/>
+     <element name="registrationExpirationDate" nillable="true" type="xsd:dateTime"/>
+     <element name="splitSpecimenRequested" nillable="true" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+   <complexType name="RegistrationResponse">
+    <sequence>
+     <element name="clientRegistrationId" nillable="true" type="xsd:string"/>
+     <element name="labcorpRegistrationNumber" type="xsd:int"/>
+     <element name="registrationTime" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="ModifyRegistrationRequest">
+    <complexContent>
+     <extension base="tns2:RegistrationRequest">
+      <sequence>
+       <element name="labcorpRegistrationNumber" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SpecimenAccount">
+    <sequence>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     <element name="specimenId" nillable="true" type="xsd:string"/>
+     <element name="accessionNumber" nillable="true" type="xsd:string"/>
+     <element name="collectionTime" nillable="true" type="xsd:dateTime"/>
+     <element name="donorFirstName" nillable="true" type="xsd:string"/>
+     <element name="donorLastName" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="AccountDetails">
+    <sequence>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     <element name="accountName" nillable="true" type="xsd:string"/>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="address1" nillable="true" type="xsd:string"/>
+     <element name="address2" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="defaultPanelId" nillable="true" type="xsd:string"/>
+     <element name="fax" nillable="true" type="tns2:Phone"/>
+     <element name="formTypeId" nillable="true" type="xsd:int"/>
+     <element name="labcorpPays" type="xsd:boolean"/>
+     <element name="locationCodeLength" type="xsd:int"/>
+     <element name="mroAddress1" nillable="true" type="xsd:string"/>
+     <element name="mroAddress2" nillable="true" type="xsd:string"/>
+     <element name="mroCity" nillable="true" type="xsd:string"/>
+     <element name="mroName" nillable="true" type="xsd:string"/>
+     <element name="mroPhone" nillable="true" type="tns2:Phone"/>
+     <element name="mroFax" nillable="true" type="tns2:Phone"/>
+     <element name="mroState" nillable="true" type="xsd:string"/>
+     <element name="mroZip" nillable="true" type="xsd:string"/>
+     <element maxOccurs="unbounded" name="panelId" nillable="true" type="xsd:string"/>
+     <element name="phone" nillable="true" type="tns2:Phone"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="zip" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCodeOptionality" type="tns3:char"/>
+     <element name="clinicInfoOptionality" type="tns3:char"/>
+     <element name="deptIdRandomTestCodeOptionality" type="tns3:char"/>
+     <element name="donorDateOfBirthOptionality" type="tns3:char"/>
+     <element name="donorHackNumberOptionality" type="tns3:char"/>
+     <element name="donorIdOptionality" type="tns3:char"/>
+     <element name="donorLicenseExpirationDateOptionality" type="tns3:char"/>
+     <element name="donorNameOptionality" type="tns3:char"/>
+     <element name="donorPhoneOptionality" type="tns3:char"/>
+     <element name="donorSexOptionality" type="tns3:char"/>
+     <element name="donorSSNOptionality" type="tns3:char"/>
+     <element name="paroleOfficerOptionality" type="tns3:char"/>
+     <element name="physicianIdOptionality" type="tns3:char"/>
+    </sequence>
+   </complexType>
+   <complexType name="MroResult">
+    <sequence>
+     <element name="donorFirstName" nillable="true" type="xsd:string"/>
+     <element name="donorMiddleName" nillable="true" type="xsd:string"/>
+     <element name="donorLastName" nillable="true" type="xsd:string"/>
+     <element name="donorSsn" nillable="true" type="xsd:string"/>
+     <element name="employeeId" nillable="true" type="xsd:string"/>
+     <element name="employerName" nillable="true" type="xsd:string"/>
+     <element name="specimenId" nillable="true" type="xsd:string"/>
+     <element name="reasonForTest" nillable="true" type="xsd:string"/>
+     <element name="collectionTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="CCFReceivedDate" nillable="true" type="xsd:dateTime"/>
+     <element name="mroDecision" nillable="true" type="xsd:string"/>
+     <element name="mroDecisionRemarks" nillable="true" type="xsd:string"/>
+     <element name="mroName" nillable="true" type="xsd:string"/>
+     <element name="mroAddr1" nillable="true" type="xsd:string"/>
+     <element name="mroAddr2" nillable="true" type="xsd:string"/>
+     <element name="mroCity" nillable="true" type="xsd:string"/>
+     <element name="mroState" nillable="true" type="xsd:string"/>
+     <element name="mroZip" nillable="true" type="xsd:string"/>
+     <element name="mroPhone" nillable="true" type="xsd:string"/>
+     <element name="releaseTimestamp" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="RegistrationSearchRequest">
+    <sequence>
+     <element name="accountName" nillable="true" type="xsd:string"/>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="clientRegistrationId" nillable="true" type="xsd:string"/>
+     <element name="creationRangeEndDate" nillable="true" type="xsd:dateTime"/>
+     <element name="creationRangeStartDate" nillable="true" type="xsd:dateTime"/>
+     <element name="donorDateOfBirth" nillable="true" type="xsd:dateTime"/>
+     <element name="donorId" nillable="true" type="xsd:string"/>
+     <element name="cdl_state" nillable="true" type="xsd:string"/>
+     <element name="cdl_number" nillable="true" type="xsd:string"/>
+     <element name="expirationRangeEndDate" nillable="true" type="xsd:dateTime"/>
+     <element name="expirationRangeStartDate" nillable="true" type="xsd:dateTime"/>
+     <element name="donorNameFirst" nillable="true" type="xsd:string"/>
+     <element name="donorNameLast" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     <element name="labcorpRegistrationNumber" type="xsd:int"/>
+     <element name="donorSSN" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="RegistrationSearchResponse">
+    <sequence>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="labcorpRegistrationNumber" type="xsd:int"/>
+     <element name="clientRegistrationId" nillable="true" type="xsd:string"/>
+     <element name="donorDateOfBirth" nillable="true" type="xsd:dateTime"/>
+     <element name="donorNameFirst" nillable="true" type="xsd:string"/>
+     <element name="donorNameLast" nillable="true" type="xsd:string"/>
+     <element name="donorNameMiddleInitial" nillable="true" type="xsd:string"/>
+     <element name="donorStateOfResidence" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="User">
+    <sequence>
+     <element name="lockedTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="passwordExpiration" nillable="true" type="xsd:dateTime"/>
+     <element name="disabledTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="disabledUser" nillable="true" type="xsd:string"/>
+     <element name="createUser" nillable="true" type="xsd:string"/>
+     <element name="createTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="lastChangeUser" nillable="true" type="xsd:string"/>
+     <element name="lastChangeTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="employeeId" nillable="true" type="xsd:string"/>
+     <element name="pwdChangeTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="invalidPwdTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="userId" nillable="true" type="xsd:string"/>
+     <element name="lastLoginTimestamp" nillable="true" type="xsd:dateTime"/>
+     <element name="sessionTimeout" nillable="true" type="xsd:int"/>
+     <element name="sessionLock" nillable="true" type="xsd:int"/>
+     <element name="invalidPwdNum" nillable="true" type="xsd:int"/>
+     <element name="viewResults" nillable="true" type="xsd:boolean"/>
+     <element name="viewCoc" nillable="true" type="xsd:boolean"/>
+     <element name="viewDot" nillable="true" type="xsd:boolean"/>
+     <element name="viewMro" nillable="true" type="xsd:boolean"/>
+     <element name="role" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="RegistrationResponse2">
+    <complexContent>
+     <extension base="tns2:RegistrationResponse">
+      <sequence>
+       <element name="vendorRegistrationId" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="SpecimenStatus">
+    <sequence>
+     <element name="accessionNumber" nillable="true" type="xsd:string"/>
+     <element name="status" nillable="true" type="xsd:string"/>
+     <element name="createTimestamp" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="PanelDetails">
+    <sequence>
+     <element name="confirmAt" nillable="true" type="xsd:string"/>
+     <element name="drugId" nillable="true" type="xsd:string"/>
+     <element name="drugName" nillable="true" type="xsd:string"/>
+     <element name="screenAt" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="AccountSearchRequest">
+    <sequence>
+     <element name="accountName" nillable="true" type="xsd:string"/>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="address1" nillable="true" type="xsd:string"/>
+     <element name="address2" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="phone" nillable="true" type="tns2:Phone"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="zip" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     <element name="mroAddress1" nillable="true" type="xsd:string"/>
+     <element name="mroAddress2" nillable="true" type="xsd:string"/>
+     <element name="mroCity" nillable="true" type="xsd:string"/>
+     <element name="mroName" nillable="true" type="xsd:string"/>
+     <element name="mroPhone" nillable="true" type="tns2:Phone"/>
+     <element name="mroState" nillable="true" type="xsd:string"/>
+     <element name="mroZip" nillable="true" type="xsd:string"/>
+     <element name="formTypeId" nillable="true" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="AccountSearchResponse">
+    <sequence>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element name="address1" nillable="true" type="xsd:string"/>
+     <element name="address2" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="accountName" nillable="true" type="xsd:string"/>
+     <element name="state" nillable="true" type="xsd:string"/>
+     <element name="zip" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Result">
+    <sequence>
+     <element name="accessionNumber" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     <element name="accountLocationName" nillable="true" type="xsd:string"/>
+     <element name="accountLocationPhone" nillable="true" type="xsd:string"/>
+     <element name="accountName" nillable="true" type="xsd:string"/>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element maxOccurs="unbounded" name="afterHeaderReportComments" nillable="true" type="tns2:Comment"/>
+     <element maxOccurs="unbounded" name="beforeClosingReportComments" nillable="true" type="tns2:Comment"/>
+     <element maxOccurs="unbounded" name="beforeTestResultsReportComments" nillable="true" type="tns2:Comment"/>
+     <element name="certifier" nillable="true" type="xsd:string"/>
+     <element name="clientRegistrationId" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteAddress1" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteAddress2" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteAddress3" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteCity" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteId" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteName" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteState" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteZip" nillable="true" type="xsd:string"/>
+     <element maxOccurs="unbounded" name="collectorCOCcomments" nillable="true" type="tns2:Comment"/>
+     <element name="collectorName" nillable="true" type="xsd:string"/>
+     <element name="collectorPhone" nillable="true" type="xsd:string"/>
+     <element name="dateTimeSpecimenCollection" nillable="true" type="xsd:dateTime"/>
+     <element name="dateTimeSpecimenReceivedAtLab" nillable="true" type="xsd:dateTime"/>
+     <element name="dateTimeSpecimenReportedFromLab" nillable="true" type="xsd:dateTime"/>
+     <element name="donorId" nillable="true" type="xsd:string"/>
+     <element name="donorNameFirst" nillable="true" type="xsd:string"/>
+     <element name="donorNameLast" nillable="true" type="xsd:string"/>
+     <element name="donorPhone" nillable="true" type="xsd:string"/>
+     <element name="donorReasonForTest" nillable="true" type="xsd:string"/>
+     <element name="donorSSN" nillable="true" type="xsd:string"/>
+     <element name="dotRegulatedAccount" nillable="true" type="xsd:boolean"/>
+     <element name="dotSpecimenResult" nillable="true" type="xsd:string"/>
+     <element name="employerNameFromCCF" nillable="true" type="xsd:string"/>
+     <element maxOccurs="unbounded" name="endOfReportComments" nillable="true" type="tns2:Comment"/>
+     <element name="labcorpRegistrationNumber" type="xsd:int"/>
+     <element name="mroNameFromCCF" nillable="true" type="xsd:string"/>
+     <element name="originalLabCorpAccessionNumber" nillable="true" type="xsd:string"/>
+     <element name="overallSpecimenResult" nillable="true" type="xsd:string"/>
+     <element name="panelId" nillable="true" type="xsd:string"/>
+     <element name="poctProductId" nillable="true" type="xsd:string"/>
+     <element name="priorAccount" nillable="true" type="xsd:string"/>
+     <element name="specimenId" nillable="true" type="xsd:string"/>
+     <element name="splitSpecimenReceived" nillable="true" type="xsd:boolean"/>
+     <element maxOccurs="unbounded" name="startReportComments" nillable="true" type="tns2:Comment"/>
+     <element name="temperature" nillable="true" type="xsd:string"/>
+     <element name="temperatureInRange" nillable="true" type="xsd:boolean"/>
+     <element maxOccurs="unbounded" name="testResults" nillable="true" type="tns2:TestResult"/>
+     <element name="transmissionType" nillable="true" type="xsd:string"/>
+     <element name="pscCollectionSite" nillable="true" type="xsd:boolean"/>
+     <element name="testingLabId" nillable="true" type="xsd:string"/>
+     <element name="donorNameMiddleInitial" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Comment">
+    <sequence>
+     <element name="abbreviation" nillable="true" type="xsd:string"/>
+     <element name="commentText" nillable="true" type="xsd:string"/>
+     <element name="commentType" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="TestResult">
+    <sequence>
+     <element name="confirmCutoff" nillable="true" type="xsd:string"/>
+     <element name="resultQualitative" nillable="true" type="xsd:string"/>
+     <element name="resultQuantitative" nillable="true" type="xsd:string"/>
+     <element name="screeningCutoff" nillable="true" type="xsd:string"/>
+     <element name="drugId" nillable="true" type="xsd:string"/>
+     <element name="units" nillable="true" type="xsd:string"/>
+     <element name="referenceInterval" nillable="true" type="xsd:string"/>
+     <element name="testName" nillable="true" type="xsd:string"/>
+     <element name="lclsTestNumber" nillable="true" type="xsd:string"/>
+     <element name="comment" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="GetRegistrationResponse">
+    <complexContent>
+     <extension base="tns2:ModifyRegistrationRequest">
+      <sequence>
+       <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+       <element name="accountNumber" nillable="true" type="xsd:string"/>
+       <element name="dateTimeLastModified" nillable="true" type="xsd:dateTime"/>
+       <element name="dateTimeRegistered" nillable="true" type="xsd:dateTime"/>
+       <element name="dateTimeRegistrationDeleted" nillable="true" type="xsd:dateTime"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="CollectionSiteSearch">
+    <sequence>
+     <element name="zipCode" nillable="true" type="xsd:string"/>
+     <element name="siteID" nillable="true" type="xsd:string"/>
+     <element name="webEnabled" nillable="true" type="xsd:string"/>
+     <element name="active" nillable="true" type="xsd:string"/>
+     <element name="webActive" nillable="true" type="xsd:string"/>
+     <element name="privateSite" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="address" nillable="true" type="xsd:string"/>
+     <element name="city" nillable="true" type="xsd:string"/>
+     <element name="stateCode" nillable="true" type="xsd:string"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="phone" nillable="true" type="xsd:string"/>
+     <element name="fax" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap">
+   <simpleType name="char">
+    <restriction base="xsd:string">
+     <length value="1"/>
+    </restriction>
+   </simpleType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getSpecimenAccountRequest">
+
+      <wsdl:part element="impl:getSpecimenAccount" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchAccountsResponse">
+
+      <wsdl:part element="impl:searchAccountsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationDeactivateRequest">
+
+      <wsdl:part element="impl:destinationDeactivate" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAccountDetailsResponse">
+
+      <wsdl:part element="impl:getAccountDetailsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="specimenResultResponse">
+
+      <wsdl:part element="impl:specimenResultResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerDonorsResponse">
+
+      <wsdl:part element="impl:registerDonorsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSpecimenAccountResponse">
+
+      <wsdl:part element="impl:getSpecimenAccountResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configAccountDeleteRequest">
+
+      <wsdl:part element="impl:configAccountDelete" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCollectionSiteRequest">
+
+      <wsdl:part element="impl:getCollectionSite" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationGetAllResponse">
+
+      <wsdl:part element="impl:destinationGetAllResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="userGetAllResponse">
+
+      <wsdl:part element="impl:userGetAllResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteRegistrationRequest">
+
+      <wsdl:part element="impl:deleteRegistration" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setMroResultRequest">
+
+      <wsdl:part element="impl:setMroResult" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPanelDetailsRequest">
+
+      <wsdl:part element="impl:getPanelDetails" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="summaryReportRequest">
+
+      <wsdl:part element="impl:summaryReport" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="userResetPasswordResponse">
+
+      <wsdl:part element="impl:userResetPasswordResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configContractDeleteRequest">
+
+      <wsdl:part element="impl:configContractDelete" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchAccountsRequest">
+
+      <wsdl:part element="impl:searchAccounts" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeCollection2Response">
+
+      <wsdl:part element="impl:completeCollection2Response" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="userModifyResponse">
+
+      <wsdl:part element="impl:userModifyResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerDonorRequest">
+
+      <wsdl:part element="impl:registerDonor" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeCollection3Request">
+
+      <wsdl:part element="impl:completeCollection3" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRegistrationDetailsRequest">
+
+      <wsdl:part element="impl:getRegistrationDetails" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeCollection3Response">
+
+      <wsdl:part element="impl:completeCollection3Response" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="userResetPasswordRequest">
+
+      <wsdl:part element="impl:userResetPassword" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="changePasswordRequest">
+
+      <wsdl:part element="impl:changePassword" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="echoResponse">
+
+      <wsdl:part element="impl:echoResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configContractDeleteResponse">
+
+      <wsdl:part element="impl:configContractDeleteResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="matchSitesRequest">
+
+      <wsdl:part element="impl:matchSites" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="locateCollectionSitesResponse">
+
+      <wsdl:part element="impl:locateCollectionSitesResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationGetResponse">
+
+      <wsdl:part element="impl:destinationGetResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyRegistrationResponse">
+
+      <wsdl:part element="impl:modifyRegistrationResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMroResultRequest">
+
+      <wsdl:part element="impl:getMroResult" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configContractGetAllResponse">
+
+      <wsdl:part element="impl:configContractGetAllResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationModifyResponse">
+
+      <wsdl:part element="impl:destinationModifyResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="userGetResponse">
+
+      <wsdl:part element="impl:userGetResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRegistrationConfirmationRequest">
+
+      <wsdl:part element="impl:getRegistrationConfirmation" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationModifyRequest">
+
+      <wsdl:part element="impl:destinationModify" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationChangePasswordResponse">
+
+      <wsdl:part element="impl:destinationChangePasswordResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRegistrationDetailsResponse">
+
+      <wsdl:part element="impl:getRegistrationDetailsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="changePasswordResponse">
+
+      <wsdl:part element="impl:changePasswordResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="echoRequest">
+
+      <wsdl:part element="impl:echo" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationActivateRequest">
+
+      <wsdl:part element="impl:destinationActivate" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeCollectionRequest">
+
+      <wsdl:part element="impl:completeCollection" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="locateCollectionSites2Response">
+
+      <wsdl:part element="impl:locateCollectionSites2Response" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configContractAddRequest">
+
+      <wsdl:part element="impl:configContractAdd" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationGetAllRequest">
+
+      <wsdl:part element="impl:destinationGetAll" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationActivateResponse">
+
+      <wsdl:part element="impl:destinationActivateResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerDonor2Request">
+
+      <wsdl:part element="impl:registerDonor2" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="userGetRequest">
+
+      <wsdl:part element="impl:userGet" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchRegistrationsRequest">
+
+      <wsdl:part element="impl:searchRegistrations" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="specimenResultRequest">
+
+      <wsdl:part element="impl:specimenResult" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configAccountGetAllResponse">
+
+      <wsdl:part element="impl:configAccountGetAllResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="resendRequest">
+
+      <wsdl:part element="impl:resend" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configAccountAddResponse">
+
+      <wsdl:part element="impl:configAccountAddResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationAccountDeleteRequest">
+
+      <wsdl:part element="impl:destinationAccountDelete" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="specimenCocResponse">
+
+      <wsdl:part element="impl:specimenCocResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeCollection2Request">
+
+      <wsdl:part element="impl:completeCollection2" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationAccountGetAllResponse">
+
+      <wsdl:part element="impl:destinationAccountGetAllResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMroResultResponse">
+
+      <wsdl:part element="impl:getMroResultResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="matchSitesResponse">
+
+      <wsdl:part element="impl:matchSitesResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="locateCollectionSitesRequest">
+
+      <wsdl:part element="impl:locateCollectionSites" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSpecimenIDRequest">
+
+      <wsdl:part element="impl:getSpecimenID" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationAccountModifyResponse">
+
+      <wsdl:part element="impl:destinationAccountModifyResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerDonorsRequest">
+
+      <wsdl:part element="impl:registerDonors" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="specimenCocRequest">
+
+      <wsdl:part element="impl:specimenCoc" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="userModifyRequest">
+
+      <wsdl:part element="impl:userModify" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="completeCollectionResponse">
+
+      <wsdl:part element="impl:completeCollectionResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="collectionSiteSearchResponse">
+
+      <wsdl:part element="impl:collectionSiteSearchResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationAccountAddResponse">
+
+      <wsdl:part element="impl:destinationAccountAddResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="specimenGetAllRequest">
+
+      <wsdl:part element="impl:specimenGetAll" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationGetRequest">
+
+      <wsdl:part element="impl:destinationGet" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationDeactivateResponse">
+
+      <wsdl:part element="impl:destinationDeactivateResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPanelDetailsResponse">
+
+      <wsdl:part element="impl:getPanelDetailsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configAccountDeleteResponse">
+
+      <wsdl:part element="impl:configAccountDeleteResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSpecimenIDResponse">
+
+      <wsdl:part element="impl:getSpecimenIDResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="resendResponse">
+
+      <wsdl:part element="impl:resendResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="modifyRegistrationRequest">
+
+      <wsdl:part element="impl:modifyRegistration" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configAccountGetAllRequest">
+
+      <wsdl:part element="impl:configAccountGetAll" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="WsException">
+
+      <wsdl:part element="tns2:WsException" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerDonor2Response">
+
+      <wsdl:part element="impl:registerDonor2Response" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="summaryReportResponse">
+
+      <wsdl:part element="impl:summaryReportResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="userGetAllRequest">
+
+      <wsdl:part element="impl:userGetAll" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configContractAddResponse">
+
+      <wsdl:part element="impl:configContractAddResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationAccountDeleteResponse">
+
+      <wsdl:part element="impl:destinationAccountDeleteResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configContractGetAllRequest">
+
+      <wsdl:part element="impl:configContractGetAll" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationAccountGetAllRequest">
+
+      <wsdl:part element="impl:destinationAccountGetAll" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCollectionSiteResponse">
+
+      <wsdl:part element="impl:getCollectionSiteResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="specimenGetAllResponse">
+
+      <wsdl:part element="impl:specimenGetAllResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationAccountAddRequest">
+
+      <wsdl:part element="impl:destinationAccountAdd" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerDonorResponse">
+
+      <wsdl:part element="impl:registerDonorResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchRegistrationsResponse">
+
+      <wsdl:part element="impl:searchRegistrationsResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="locateCollectionSites2Request">
+
+      <wsdl:part element="impl:locateCollectionSites2" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationAccountModifyRequest">
+
+      <wsdl:part element="impl:destinationAccountModify" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteRegistrationResponse">
+
+      <wsdl:part element="impl:deleteRegistrationResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setMroResultResponse">
+
+      <wsdl:part element="impl:setMroResultResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAccountDetailsRequest">
+
+      <wsdl:part element="impl:getAccountDetails" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="collectionSiteSearchRequest">
+
+      <wsdl:part element="impl:collectionSiteSearch" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="configAccountAddRequest">
+
+      <wsdl:part element="impl:configAccountAdd" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="destinationChangePasswordRequest">
+
+      <wsdl:part element="impl:destinationChangePassword" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getRegistrationConfirmationResponse">
+
+      <wsdl:part element="impl:getRegistrationConfirmationResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="LabcorpOTS">
+
+      <wsdl:operation name="destinationGetAll">
+
+         <wsdl:input message="impl:destinationGetAllRequest" name="destinationGetAllRequest"/>
+
+         <wsdl:output message="impl:destinationGetAllResponse" name="destinationGetAllResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configAccountGetAll">
+
+         <wsdl:input message="impl:configAccountGetAllRequest" name="configAccountGetAllRequest"/>
+
+         <wsdl:output message="impl:configAccountGetAllResponse" name="configAccountGetAllResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationActivate">
+
+         <wsdl:input message="impl:destinationActivateRequest" name="destinationActivateRequest"/>
+
+         <wsdl:output message="impl:destinationActivateResponse" name="destinationActivateResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="locateCollectionSites2">
+
+         <wsdl:input message="impl:locateCollectionSites2Request" name="locateCollectionSites2Request"/>
+
+         <wsdl:output message="impl:locateCollectionSites2Response" name="locateCollectionSites2Response"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationAccountGetAll">
+
+         <wsdl:input message="impl:destinationAccountGetAllRequest" name="destinationAccountGetAllRequest"/>
+
+         <wsdl:output message="impl:destinationAccountGetAllResponse" name="destinationAccountGetAllResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeCollection2">
+
+         <wsdl:input message="impl:completeCollection2Request" name="completeCollection2Request"/>
+
+         <wsdl:output message="impl:completeCollection2Response" name="completeCollection2Response"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationModify">
+
+         <wsdl:input message="impl:destinationModifyRequest" name="destinationModifyRequest"/>
+
+         <wsdl:output message="impl:destinationModifyResponse" name="destinationModifyResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configContractDelete">
+
+         <wsdl:input message="impl:configContractDeleteRequest" name="configContractDeleteRequest"/>
+
+         <wsdl:output message="impl:configContractDeleteResponse" name="configContractDeleteResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="matchSites">
+
+         <wsdl:input message="impl:matchSitesRequest" name="matchSitesRequest"/>
+
+         <wsdl:output message="impl:matchSitesResponse" name="matchSitesResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userGetAll">
+
+         <wsdl:input message="impl:userGetAllRequest" name="userGetAllRequest"/>
+
+         <wsdl:output message="impl:userGetAllResponse" name="userGetAllResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="specimenCoc">
+
+         <wsdl:input message="impl:specimenCocRequest" name="specimenCocRequest"/>
+
+         <wsdl:output message="impl:specimenCocResponse" name="specimenCocResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changePassword">
+
+         <wsdl:input message="impl:changePasswordRequest" name="changePasswordRequest"/>
+
+         <wsdl:output message="impl:changePasswordResponse" name="changePasswordResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationChangePassword">
+
+         <wsdl:input message="impl:destinationChangePasswordRequest" name="destinationChangePasswordRequest"/>
+
+         <wsdl:output message="impl:destinationChangePasswordResponse" name="destinationChangePasswordResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configContractGetAll">
+
+         <wsdl:input message="impl:configContractGetAllRequest" name="configContractGetAllRequest"/>
+
+         <wsdl:output message="impl:configContractGetAllResponse" name="configContractGetAllResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSpecimenID">
+
+         <wsdl:input message="impl:getSpecimenIDRequest" name="getSpecimenIDRequest"/>
+
+         <wsdl:output message="impl:getSpecimenIDResponse" name="getSpecimenIDResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationDeactivate">
+
+         <wsdl:input message="impl:destinationDeactivateRequest" name="destinationDeactivateRequest"/>
+
+         <wsdl:output message="impl:destinationDeactivateResponse" name="destinationDeactivateResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationAccountModify">
+
+         <wsdl:input message="impl:destinationAccountModifyRequest" name="destinationAccountModifyRequest"/>
+
+         <wsdl:output message="impl:destinationAccountModifyResponse" name="destinationAccountModifyResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationAccountAdd">
+
+         <wsdl:input message="impl:destinationAccountAddRequest" name="destinationAccountAddRequest"/>
+
+         <wsdl:output message="impl:destinationAccountAddResponse" name="destinationAccountAddResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerDonors">
+
+         <wsdl:input message="impl:registerDonorsRequest" name="registerDonorsRequest"/>
+
+         <wsdl:output message="impl:registerDonorsResponse" name="registerDonorsResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyRegistration">
+
+         <wsdl:input message="impl:modifyRegistrationRequest" name="modifyRegistrationRequest"/>
+
+         <wsdl:output message="impl:modifyRegistrationResponse" name="modifyRegistrationResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationGet">
+
+         <wsdl:input message="impl:destinationGetRequest" name="destinationGetRequest"/>
+
+         <wsdl:output message="impl:destinationGetResponse" name="destinationGetResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configContractAdd">
+
+         <wsdl:input message="impl:configContractAddRequest" name="configContractAddRequest"/>
+
+         <wsdl:output message="impl:configContractAddResponse" name="configContractAddResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSpecimenAccount">
+
+         <wsdl:input message="impl:getSpecimenAccountRequest" name="getSpecimenAccountRequest"/>
+
+         <wsdl:output message="impl:getSpecimenAccountResponse" name="getSpecimenAccountResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="resend">
+
+         <wsdl:input message="impl:resendRequest" name="resendRequest"/>
+
+         <wsdl:output message="impl:resendResponse" name="resendResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userResetPassword">
+
+         <wsdl:input message="impl:userResetPasswordRequest" name="userResetPasswordRequest"/>
+
+         <wsdl:output message="impl:userResetPasswordResponse" name="userResetPasswordResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccountDetails">
+
+         <wsdl:input message="impl:getAccountDetailsRequest" name="getAccountDetailsRequest"/>
+
+         <wsdl:output message="impl:getAccountDetailsResponse" name="getAccountDetailsResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMroResult">
+
+         <wsdl:input message="impl:getMroResultRequest" name="getMroResultRequest"/>
+
+         <wsdl:output message="impl:getMroResultResponse" name="getMroResultResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configAccountAdd">
+
+         <wsdl:input message="impl:configAccountAddRequest" name="configAccountAddRequest"/>
+
+         <wsdl:output message="impl:configAccountAddResponse" name="configAccountAddResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchRegistrations">
+
+         <wsdl:input message="impl:searchRegistrationsRequest" name="searchRegistrationsRequest"/>
+
+         <wsdl:output message="impl:searchRegistrationsResponse" name="searchRegistrationsResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userGet">
+
+         <wsdl:input message="impl:userGetRequest" name="userGetRequest"/>
+
+         <wsdl:output message="impl:userGetResponse" name="userGetResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCollectionSite">
+
+         <wsdl:input message="impl:getCollectionSiteRequest" name="getCollectionSiteRequest"/>
+
+         <wsdl:output message="impl:getCollectionSiteResponse" name="getCollectionSiteResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userModify">
+
+         <wsdl:input message="impl:userModifyRequest" name="userModifyRequest"/>
+
+         <wsdl:output message="impl:userModifyResponse" name="userModifyResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRegistrationConfirmation">
+
+         <wsdl:input message="impl:getRegistrationConfirmationRequest" name="getRegistrationConfirmationRequest"/>
+
+         <wsdl:output message="impl:getRegistrationConfirmationResponse" name="getRegistrationConfirmationResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteRegistration">
+
+         <wsdl:input message="impl:deleteRegistrationRequest" name="deleteRegistrationRequest"/>
+
+         <wsdl:output message="impl:deleteRegistrationResponse" name="deleteRegistrationResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerDonor2">
+
+         <wsdl:input message="impl:registerDonor2Request" name="registerDonor2Request"/>
+
+         <wsdl:output message="impl:registerDonor2Response" name="registerDonor2Response"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerDonor">
+
+         <wsdl:input message="impl:registerDonorRequest" name="registerDonorRequest"/>
+
+         <wsdl:output message="impl:registerDonorResponse" name="registerDonorResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationAccountDelete">
+
+         <wsdl:input message="impl:destinationAccountDeleteRequest" name="destinationAccountDeleteRequest"/>
+
+         <wsdl:output message="impl:destinationAccountDeleteResponse" name="destinationAccountDeleteResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeCollection">
+
+         <wsdl:input message="impl:completeCollectionRequest" name="completeCollectionRequest"/>
+
+         <wsdl:output message="impl:completeCollectionResponse" name="completeCollectionResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="specimenGetAll">
+
+         <wsdl:input message="impl:specimenGetAllRequest" name="specimenGetAllRequest"/>
+
+         <wsdl:output message="impl:specimenGetAllResponse" name="specimenGetAllResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPanelDetails">
+
+         <wsdl:input message="impl:getPanelDetailsRequest" name="getPanelDetailsRequest"/>
+
+         <wsdl:output message="impl:getPanelDetailsResponse" name="getPanelDetailsResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchAccounts">
+
+         <wsdl:input message="impl:searchAccountsRequest" name="searchAccountsRequest"/>
+
+         <wsdl:output message="impl:searchAccountsResponse" name="searchAccountsResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="locateCollectionSites">
+
+         <wsdl:input message="impl:locateCollectionSitesRequest" name="locateCollectionSitesRequest"/>
+
+         <wsdl:output message="impl:locateCollectionSitesResponse" name="locateCollectionSitesResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configAccountDelete">
+
+         <wsdl:input message="impl:configAccountDeleteRequest" name="configAccountDeleteRequest"/>
+
+         <wsdl:output message="impl:configAccountDeleteResponse" name="configAccountDeleteResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="specimenResult">
+
+         <wsdl:input message="impl:specimenResultRequest" name="specimenResultRequest"/>
+
+         <wsdl:output message="impl:specimenResultResponse" name="specimenResultResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="summaryReport">
+
+         <wsdl:input message="impl:summaryReportRequest" name="summaryReportRequest"/>
+
+         <wsdl:output message="impl:summaryReportResponse" name="summaryReportResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeCollection3">
+
+         <wsdl:input message="impl:completeCollection3Request" name="completeCollection3Request"/>
+
+         <wsdl:output message="impl:completeCollection3Response" name="completeCollection3Response"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRegistrationDetails">
+
+         <wsdl:input message="impl:getRegistrationDetailsRequest" name="getRegistrationDetailsRequest"/>
+
+         <wsdl:output message="impl:getRegistrationDetailsResponse" name="getRegistrationDetailsResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="collectionSiteSearch">
+
+         <wsdl:input message="impl:collectionSiteSearchRequest" name="collectionSiteSearchRequest"/>
+
+         <wsdl:output message="impl:collectionSiteSearchResponse" name="collectionSiteSearchResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="echo">
+
+         <wsdl:input message="impl:echoRequest" name="echoRequest"/>
+
+         <wsdl:output message="impl:echoResponse" name="echoResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setMroResult">
+
+         <wsdl:input message="impl:setMroResultRequest" name="setMroResultRequest"/>
+
+         <wsdl:output message="impl:setMroResultResponse" name="setMroResultResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="LabcorpOTSSoapBinding" type="impl:LabcorpOTS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="destinationGetAll">
+
+         <wsdlsoap:operation soapAction="destinationGetAll"/>
+
+         <wsdl:input name="destinationGetAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationGetAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configAccountGetAll">
+
+         <wsdlsoap:operation soapAction="configAccountGetAll"/>
+
+         <wsdl:input name="configAccountGetAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="configAccountGetAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationActivate">
+
+         <wsdlsoap:operation soapAction="destinationActivate"/>
+
+         <wsdl:input name="destinationActivateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationActivateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="locateCollectionSites2">
+
+         <wsdlsoap:operation soapAction="locateCollectionSites2"/>
+
+         <wsdl:input name="locateCollectionSites2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="locateCollectionSites2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationAccountGetAll">
+
+         <wsdlsoap:operation soapAction="destinationAccountGetAll"/>
+
+         <wsdl:input name="destinationAccountGetAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationAccountGetAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeCollection2">
+
+         <wsdlsoap:operation soapAction="completeCollection2"/>
+
+         <wsdl:input name="completeCollection2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="completeCollection2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationModify">
+
+         <wsdlsoap:operation soapAction="destinationModify"/>
+
+         <wsdl:input name="destinationModifyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationModifyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configContractDelete">
+
+         <wsdlsoap:operation soapAction="configContractDelete"/>
+
+         <wsdl:input name="configContractDeleteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="configContractDeleteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="matchSites">
+
+         <wsdlsoap:operation soapAction="matchSites"/>
+
+         <wsdl:input name="matchSitesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="matchSitesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userGetAll">
+
+         <wsdlsoap:operation soapAction="userGetAll"/>
+
+         <wsdl:input name="userGetAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="userGetAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="specimenCoc">
+
+         <wsdlsoap:operation soapAction="specimenCoc"/>
+
+         <wsdl:input name="specimenCocRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="specimenCocResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changePassword">
+
+         <wsdlsoap:operation soapAction="changePassword"/>
+
+         <wsdl:input name="changePasswordRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="changePasswordResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationChangePassword">
+
+         <wsdlsoap:operation soapAction="destinationChangePassword"/>
+
+         <wsdl:input name="destinationChangePasswordRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationChangePasswordResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configContractGetAll">
+
+         <wsdlsoap:operation soapAction="configContractGetAll"/>
+
+         <wsdl:input name="configContractGetAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="configContractGetAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSpecimenID">
+
+         <wsdlsoap:operation soapAction="getSpecimenID"/>
+
+         <wsdl:input name="getSpecimenIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSpecimenIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationDeactivate">
+
+         <wsdlsoap:operation soapAction="destinationDeactivate"/>
+
+         <wsdl:input name="destinationDeactivateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationDeactivateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationAccountModify">
+
+         <wsdlsoap:operation soapAction="destinationAccountModify"/>
+
+         <wsdl:input name="destinationAccountModifyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationAccountModifyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationAccountAdd">
+
+         <wsdlsoap:operation soapAction="destinationAccountAdd"/>
+
+         <wsdl:input name="destinationAccountAddRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationAccountAddResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerDonors">
+
+         <wsdlsoap:operation soapAction="registerDonors"/>
+
+         <wsdl:input name="registerDonorsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerDonorsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="modifyRegistration">
+
+         <wsdlsoap:operation soapAction="modifyRegistration"/>
+
+         <wsdl:input name="modifyRegistrationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="modifyRegistrationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationGet">
+
+         <wsdlsoap:operation soapAction="destinationGet"/>
+
+         <wsdl:input name="destinationGetRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationGetResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configContractAdd">
+
+         <wsdlsoap:operation soapAction="configContractAdd"/>
+
+         <wsdl:input name="configContractAddRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="configContractAddResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSpecimenAccount">
+
+         <wsdlsoap:operation soapAction="getSpecimenAccount"/>
+
+         <wsdl:input name="getSpecimenAccountRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSpecimenAccountResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="resend">
+
+         <wsdlsoap:operation soapAction="resend"/>
+
+         <wsdl:input name="resendRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="resendResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userResetPassword">
+
+         <wsdlsoap:operation soapAction="userResetPassword"/>
+
+         <wsdl:input name="userResetPasswordRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="userResetPasswordResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccountDetails">
+
+         <wsdlsoap:operation soapAction="getAccountDetails"/>
+
+         <wsdl:input name="getAccountDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAccountDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMroResult">
+
+         <wsdlsoap:operation soapAction="getMroResult"/>
+
+         <wsdl:input name="getMroResultRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMroResultResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configAccountAdd">
+
+         <wsdlsoap:operation soapAction="configAccountAdd"/>
+
+         <wsdl:input name="configAccountAddRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="configAccountAddResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchRegistrations">
+
+         <wsdlsoap:operation soapAction="searchRegistrations"/>
+
+         <wsdl:input name="searchRegistrationsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchRegistrationsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userGet">
+
+         <wsdlsoap:operation soapAction="userGet"/>
+
+         <wsdl:input name="userGetRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="userGetResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCollectionSite">
+
+         <wsdlsoap:operation soapAction="getCollectionSite"/>
+
+         <wsdl:input name="getCollectionSiteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCollectionSiteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userModify">
+
+         <wsdlsoap:operation soapAction="userModify"/>
+
+         <wsdl:input name="userModifyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="userModifyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRegistrationConfirmation">
+
+         <wsdlsoap:operation soapAction="getRegistrationConfirmation"/>
+
+         <wsdl:input name="getRegistrationConfirmationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getRegistrationConfirmationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteRegistration">
+
+         <wsdlsoap:operation soapAction="deleteRegistration"/>
+
+         <wsdl:input name="deleteRegistrationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteRegistrationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerDonor2">
+
+         <wsdlsoap:operation soapAction="registerDonor2"/>
+
+         <wsdl:input name="registerDonor2Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerDonor2Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="registerDonor">
+
+         <wsdlsoap:operation soapAction="registerDonor"/>
+
+         <wsdl:input name="registerDonorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerDonorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="destinationAccountDelete">
+
+         <wsdlsoap:operation soapAction="destinationAccountDelete"/>
+
+         <wsdl:input name="destinationAccountDeleteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="destinationAccountDeleteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeCollection">
+
+         <wsdlsoap:operation soapAction="completeCollection"/>
+
+         <wsdl:input name="completeCollectionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="completeCollectionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="specimenGetAll">
+
+         <wsdlsoap:operation soapAction="specimenGetAll"/>
+
+         <wsdl:input name="specimenGetAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="specimenGetAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPanelDetails">
+
+         <wsdlsoap:operation soapAction="getPanelDetails"/>
+
+         <wsdl:input name="getPanelDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPanelDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchAccounts">
+
+         <wsdlsoap:operation soapAction="searchAccounts"/>
+
+         <wsdl:input name="searchAccountsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchAccountsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="locateCollectionSites">
+
+         <wsdlsoap:operation soapAction="locateCollectionSites"/>
+
+         <wsdl:input name="locateCollectionSitesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="locateCollectionSitesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="configAccountDelete">
+
+         <wsdlsoap:operation soapAction="configAccountDelete"/>
+
+         <wsdl:input name="configAccountDeleteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="configAccountDeleteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="specimenResult">
+
+         <wsdlsoap:operation soapAction="specimenResult"/>
+
+         <wsdl:input name="specimenResultRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="specimenResultResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="summaryReport">
+
+         <wsdlsoap:operation soapAction="summaryReport"/>
+
+         <wsdl:input name="summaryReportRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="summaryReportResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="completeCollection3">
+
+         <wsdlsoap:operation soapAction="completeCollection3"/>
+
+         <wsdl:input name="completeCollection3Request">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="completeCollection3Response">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getRegistrationDetails">
+
+         <wsdlsoap:operation soapAction="getRegistrationDetails"/>
+
+         <wsdl:input name="getRegistrationDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getRegistrationDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="collectionSiteSearch">
+
+         <wsdlsoap:operation soapAction="collectionSiteSearch"/>
+
+         <wsdl:input name="collectionSiteSearchRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="collectionSiteSearchResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="echo">
+
+         <wsdlsoap:operation soapAction="echo"/>
+
+         <wsdl:input name="echoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="echoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setMroResult">
+
+         <wsdlsoap:operation soapAction="setMroResult"/>
+
+         <wsdl:input name="setMroResultRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setMroResultResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="LabcorpOTSService">
+
+      <wsdl:port binding="impl:LabcorpOTSSoapBinding" name="LabcorpOTS">
+
+         <wsdlsoap:address location="https://services-cert.labcorpsolutions.com/webservice/services/LabcorpOTS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://cws.ots.labcorp.com" xmlns:impl="http://cws.ots.labcorp.com" xmlns:intf="http://cws.ots.labcorp.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://cws.ots.labcorp.com">
+   <element name="coc">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="accountNumber" nillable="true" type="xsd:string"/>
+      <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+      <element name="clientRegistrationId" nillable="true" type="xsd:string"/>
+      <element name="labcorpRegistrationNumber" type="xsd:int"/>
+      <element name="specimenId" nillable="true" type="xsd:string"/>
+      <element maxOccurs="unbounded" minOccurs="0" name="coc" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cocResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <complexType name="WsException">
+    <sequence>
+     <element name="message" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="WsException" nillable="true" type="impl:WsException"/>
+   <element name="status">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="accountNumber" nillable="true" type="xsd:string"/>
+      <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+      <element name="clientRegistrationId" nillable="true" type="xsd:string"/>
+      <element name="labcorpRegistrationNumber" type="xsd:int"/>
+      <element name="specimenId" nillable="true" type="xsd:string"/>
+      <element name="status" nillable="true" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="statusResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+   <element name="result">
+    <complexType>
+     <sequence>
+      <element name="userId" nillable="true" type="xsd:string"/>
+      <element name="password" nillable="true" type="xsd:string"/>
+      <element name="result" nillable="true" type="impl:Result"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Result">
+    <sequence>
+     <element name="accessionNumber" nillable="true" type="xsd:string"/>
+     <element name="accountLocationCode" nillable="true" type="xsd:string"/>
+     <element name="accountLocationName" nillable="true" type="xsd:string"/>
+     <element name="accountLocationPhone" nillable="true" type="xsd:string"/>
+     <element name="accountName" nillable="true" type="xsd:string"/>
+     <element name="accountNumber" nillable="true" type="xsd:string"/>
+     <element maxOccurs="unbounded" name="afterHeaderReportComments" nillable="true" type="impl:Comment"/>
+     <element maxOccurs="unbounded" name="beforeClosingReportComments" nillable="true" type="impl:Comment"/>
+     <element maxOccurs="unbounded" name="beforeTestResultsReportComments" nillable="true" type="impl:Comment"/>
+     <element name="certifier" nillable="true" type="xsd:string"/>
+     <element name="clientRegistrationId" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteAddress1" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteAddress2" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteAddress3" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteCity" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteId" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteName" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteState" nillable="true" type="xsd:string"/>
+     <element name="collectionSiteZip" nillable="true" type="xsd:string"/>
+     <element maxOccurs="unbounded" name="collectorCOCcomments" nillable="true" type="impl:Comment"/>
+     <element name="collectorName" nillable="true" type="xsd:string"/>
+     <element name="collectorPhone" nillable="true" type="xsd:string"/>
+     <element name="dateTimeSpecimenCollection" nillable="true" type="xsd:dateTime"/>
+     <element name="dateTimeSpecimenReceivedAtLab" nillable="true" type="xsd:dateTime"/>
+     <element name="dateTimeSpecimenReportedFromLab" nillable="true" type="xsd:dateTime"/>
+     <element name="donorId" nillable="true" type="xsd:string"/>
+     <element name="donorNameFirst" nillable="true" type="xsd:string"/>
+     <element name="donorNameLast" nillable="true" type="xsd:string"/>
+     <element name="donorPhone" nillable="true" type="xsd:string"/>
+     <element name="donorReasonForTest" nillable="true" type="xsd:string"/>
+     <element name="donorSSN" nillable="true" type="xsd:string"/>
+     <element name="dotRegulatedAccount" nillable="true" type="xsd:boolean"/>
+     <element name="dotSpecimenResult" nillable="true" type="xsd:string"/>
+     <element name="employerNameFromCCF" nillable="true" type="xsd:string"/>
+     <element maxOccurs="unbounded" name="endOfReportComments" nillable="true" type="impl:Comment"/>
+     <element name="labcorpRegistrationNumber" type="xsd:int"/>
+     <element name="mroNameFromCCF" nillable="true" type="xsd:string"/>
+     <element name="originalLabCorpAccessionNumber" nillable="true" type="xsd:string"/>
+     <element name="overallSpecimenResult" nillable="true" type="xsd:string"/>
+     <element name="panelId" nillable="true" type="xsd:string"/>
+     <element name="poctProductId" nillable="true" type="xsd:string"/>
+     <element name="priorAccount" nillable="true" type="xsd:string"/>
+     <element name="specimenId" nillable="true" type="xsd:string"/>
+     <element name="splitSpecimenReceived" nillable="true" type="xsd:boolean"/>
+     <element maxOccurs="unbounded" name="startReportComments" nillable="true" type="impl:Comment"/>
+     <element name="temperature" nillable="true" type="xsd:string"/>
+     <element name="temperatureInRange" nillable="true" type="xsd:boolean"/>
+     <element maxOccurs="unbounded" name="testResults" nillable="true" type="impl:TestResult"/>
+     <element name="transmissionType" nillable="true" type="xsd:string"/>
+     <element name="pscCollectionSite" nillable="true" type="xsd:boolean"/>
+     <element name="testingLabId" nillable="true" type="xsd:string"/>
+     <element name="donorNameMiddleInitial" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Comment">
+    <sequence>
+     <element name="abbreviation" nillable="true" type="xsd:string"/>
+     <element name="commentText" nillable="true" type="xsd:string"/>
+     <element name="commentType" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="TestResult">
+    <sequence>
+     <element name="confirmCutoff" nillable="true" type="xsd:string"/>
+     <element name="resultQualitative" nillable="true" type="xsd:string"/>
+     <element name="resultQuantitative" nillable="true" type="xsd:string"/>
+     <element name="screeningCutoff" nillable="true" type="xsd:string"/>
+     <element name="drugId" nillable="true" type="xsd:string"/>
+     <element name="units" nillable="true" type="xsd:string"/>
+     <element name="referenceInterval" nillable="true" type="xsd:string"/>
+     <element name="testName" nillable="true" type="xsd:string"/>
+     <element name="lclsTestNumber" nillable="true" type="xsd:string"/>
+     <element name="comment" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="resultResponse">
+    <complexType>
+     <sequence/>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="statusRequest">
+
+      <wsdl:part element="impl:status" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="cocResponse">
+
+      <wsdl:part element="impl:cocResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="resultResponse">
+
+      <wsdl:part element="impl:resultResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="resultRequest">
+
+      <wsdl:part element="impl:result" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="WsException">
+
+      <wsdl:part element="impl:WsException" name="fault"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="statusResponse">
+
+      <wsdl:part element="impl:statusResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="cocRequest">
+
+      <wsdl:part element="impl:coc" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ClientsWS">
+
+      <wsdl:operation name="coc">
+
+         <wsdl:input message="impl:cocRequest" name="cocRequest"/>
+
+         <wsdl:output message="impl:cocResponse" name="cocResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="status">
+
+         <wsdl:input message="impl:statusRequest" name="statusRequest"/>
+
+         <wsdl:output message="impl:statusResponse" name="statusResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="result">
+
+         <wsdl:input message="impl:resultRequest" name="resultRequest"/>
+
+         <wsdl:output message="impl:resultResponse" name="resultResponse"/>
+
+         <wsdl:fault message="impl:WsException" name="WsException"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ClientsWSSoapBinding" type="impl:ClientsWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="coc">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cocRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cocResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="status">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="statusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="statusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="result">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="resultRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="resultResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="WsException">
+
+            <wsdlsoap:fault name="WsException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ClientsWSService">
+
+      <wsdl:port binding="impl:ClientsWSSoapBinding" name="ClientsWS">
+
+         <wsdlsoap:address location="http://localhost:9082/clientswebservice/services/ClientsWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1>Welcome</h1>
+        <p class="lead">Select an option to proceed</p>
+
+        <!-- Clinical Button -->
+        <a href="{% url 'clinical_path' %}" class="btn btn-primary btn-lg m-2">
+            <i class="fas fa-clinic-medical"></i> Clinical
+        </a>
+
+        <!-- Drug Screen Button -->
+        <a href="{% url 'drug_screen_path' %}" class="btn btn-success btn-lg m-2">
+            <i class="fas fa-pills"></i> Drug Screen
+        </a>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
