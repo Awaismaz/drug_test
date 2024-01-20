@@ -1,82 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Test Selection</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
-    <style>
-        .dot {
-            height: 10px;
-            width: 10px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .green-dot {
-            background-color: #28a745;
-        }
-        .red-dot {
-            background-color: #dc3545;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="row justify-content-between align-items-center mb-3">
-            <div class="col-auto">
-                <h1>Select a Test</h1>
-            </div>
-            <div class="col-auto">
-                <a href="{% url 'select_location' %}" > <button class="btn btn-primary">Submit Selection</button> </a>
-            </div>
-        </div>
-        {% for drug_class, details in drug_tests.items %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-md-8">
-                            <h5 class="card-title">{{ drug_class }}</h5>
-                            <p class="card-text">{{ details.description }}</p>
-                        </div>
-                        <div class="col-md-4 d-flex justify-content-end align-items-center">
-                            <span class="price-tag align-self-center mr-2"><b>$90.00</b></span>
-                            <button class="btn btn-success">Add to Cart</button>
-                        </div>
-                    </div>
-                    
-                    {% if details.sub_drugs %}
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Sub Drugs</th>
-                                    <th>Description</th>
-                                    <th class="text-center">Blood</th>
-                                    <th class="text-center">Urine</th>
-                                    <th class="text-center">Oral Fluids</th>
-                                    <th class="text-center">Hair</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for sub_drug in details.sub_drugs %}
-                                    <tr>
-                                        <td>{{ sub_drug.subdrug }}</td>
-                                        <td>{{ sub_drug.description }}</td>
-                                        <td class="text-center"><span class="dot {{ sub_drug.blood|yesno:'green-dot,red-dot' }}"></span></td>
-                                        <td class="text-center"><span class="dot {{ sub_drug.urine|yesno:'green-dot,red-dot' }}"></span></td>
-                                        <td class="text-center"><span class="dot {{ sub_drug.oral_fluids|yesno:'green-dot,red-dot' }}"></span></td>
-                                        <td class="text-center"><span class="dot {{ sub_drug.hair|yesno:'green-dot,red-dot' }}"></span></td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    {% endif %}
+<!-- some_template.html -->
+{% extends 'drugtest/base.html' %}
+
+{% block title %}Page Specific Title{% endblock %}
+
+{% block content %}
+<div class="row justify-content-between align-items-center mb-3">
+    <div class="col-auto">
+        <h1>Select a Test</h1>
+    </div>
+    <div class="col-auto">
+        <a href="{% url 'select_location' %}" > <button class="btn btn-primary">Submit Selection</button> </a>
+    </div>
+</div>
+{% for drug_class, details in drug_tests.items %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h5 class="card-title">{{ drug_class }}</h5>
+                    <p class="card-text">{{ details.description }}</p>
+                </div>
+                <div class="col-md-4 d-flex justify-content-end align-items-center">
+                    <span class="price-tag align-self-center mr-2"><b>$90.00</b></span>
+                    <button class="btn btn-success">Add to Cart</button>
                 </div>
             </div>
-        {% endfor %}
+            
+            {% if details.sub_drugs %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sub Drugs</th>
+                            <th>Description</th>
+                            <th class="text-center">Blood</th>
+                            <th class="text-center">Urine</th>
+                            <th class="text-center">Oral Fluids</th>
+                            <th class="text-center">Hair</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sub_drug in details.sub_drugs %}
+                            <tr>
+                                <td>{{ sub_drug.subdrug }}</td>
+                                <td>{{ sub_drug.description }}</td>
+                                <td class="text-center"><span class="dot {{ sub_drug.blood|yesno:'green-dot,red-dot' }}"></span></td>
+                                <td class="text-center"><span class="dot {{ sub_drug.urine|yesno:'green-dot,red-dot' }}"></span></td>
+                                <td class="text-center"><span class="dot {{ sub_drug.oral_fluids|yesno:'green-dot,red-dot' }}"></span></td>
+                                <td class="text-center"><span class="dot {{ sub_drug.hair|yesno:'green-dot,red-dot' }}"></span></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</body>
-</html>
+{% endfor %}
+{% endblock %}
