@@ -4,12 +4,18 @@
 {% block title %}Page Specific Title{% endblock %}
 
 {% block content %}
-    <h1>Drug Screen Tests</h1>
-    <a href="{% url 'business_user' %}" class="btn btn-primary">
-        <i class="far fa-building"></i> Are you a Business?
-    </a>
-    <a href="{% url 'donor' %}" class="btn btn-info">
-        <i class="fas fa-user"></i> Is this a personal test?
-    </a>
+    <div>
+        <h1>Drug Screen Tests</h1>
+        <a href="{% url 'business_user' %}" class="btn btn-primary">
+            <i class="far fa-building"></i> Are you a Business?
+        </a>
+    </div>
+<p></p>
+    <div>
+        <a href="{% url 'donor' %}" class="btn btn-info">
+            <i class="fas fa-user"></i> Is this a personal test?
+        </a>
+    </div>
+
 {% endblock %}
 
