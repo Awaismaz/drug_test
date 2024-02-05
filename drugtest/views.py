@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import BusinessUserForm, DonorForm, LocationForm
 from .models import DrugTest, DrugCategory
-
+from django.conf import settings
+import os
 def home(request):
     # Home page with options to select test or site
     return render(request, 'drugtest/home.html')
@@ -77,7 +78,7 @@ def select_location(request, id):
     if request.method == 'POST':
         form = LocationForm(request.POST)
         if form.is_valid():
-            wsdl_path = "LabcorpOTS.wsdl"  # Adjust the path as needed
+            wsdl_path = os.path.join(settings.BASE_DIR, "LabcorpOTS.wsdl")
             client = Client(wsdl=wsdl_path)
             response = client.service.matchSites(
                 userId='ESITESTING', 
