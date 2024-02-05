@@ -73,7 +73,7 @@ def display_sites(request):
 
 from zeep import Client
 
-def select_location(request):
+def select_location(request, id):
     if request.method == 'POST':
         form = LocationForm(request.POST)
         if form.is_valid():

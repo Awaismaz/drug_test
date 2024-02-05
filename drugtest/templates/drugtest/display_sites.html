@@ -3,11 +3,26 @@
 {% block title %}Page Specific Title{% endblock %}
 
 {% block content %}
-<h1 class="my-4">Nearest Locations</h1>
 <div class="row">
-    {% for site in sites %}
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
+    <!-- Map Column -->
+    <div class="col-md-8">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12685034.790423196!2d-95.677068!3d37.09024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1641234567890" 
+            width="100%" 
+            height="600" 
+            frameborder="0" 
+            style="border:0;" 
+            allowfullscreen="" 
+            aria-hidden="false" 
+            tabindex="0">
+        </iframe>
+    </div>
+
+    <!-- Nearest Locations Column -->
+    <div class="col-md-4" style="height: 600px; overflow-y: scroll;">
+        <h1 class="my-4">Nearest Locations</h1>
+        {% for site in sites %}
+            <div class="card mb-4">
                 <div class="card-body">
                     <h5 class="card-title">
                         <i class="fas fa-map-marker-alt"></i>
@@ -19,16 +34,13 @@
                         {{ site.city }}, {{ site.state }} {{ site.zip }}<br>
                         <i class="fas fa-phone"></i> {{ site.phoneNumber|default:"N/A" }}<br>
                     </p>
-                    <!-- Select Button -->
                     <a href="{% url 'home' %}" class="btn btn-primary">Select</a>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">
-                        Collection Site ID: {{ site.collectionSiteId }}
-                    </small>
+                    <small class="text-muted">Collection Site ID: {{ site.collectionSiteId }}</small>
                 </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

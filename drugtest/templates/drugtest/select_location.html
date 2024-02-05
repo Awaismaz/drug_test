@@ -1,18 +1,36 @@
-
 {% extends 'drugtest/base.html' %}
 
 {% block title %}Page Specific Title{% endblock %}
 
 {% block content %}
-    <h1>Search Collection Sites</h1>
-    <form method="post">
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.zip_code.label_tag }} {{ form.zip_code }}
-        </div>
-        <div class="form-group">
-            {{ form.distance_choices.label_tag }} {{ form.distance_choices }}
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Selection</button>
-    </form>
+<div class="row">
+    <!-- Google Map Column -->
+    <div class="col-md-8">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12685034.790423196!2d-95.677068!3d37.09024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1641234567890" 
+            width="100%" 
+            height="600" 
+            frameborder="0" 
+            style="border:0;" 
+            allowfullscreen="" 
+            aria-hidden="false" 
+            tabindex="0">
+        </iframe>
+    </div>
+
+    <!-- Form Column -->
+    <div class="col-md-4">
+        <h1>Search Collection Sites</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.zip_code.label_tag }} {{ form.zip_code }}
+            </div>
+            <div class="form-group">
+                {{ form.distance_choices.label_tag }} {{ form.distance_choices }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Selection</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

@@ -38,8 +38,10 @@
                             <a href="#" onclick="showAboutInfo('{{ panel.about|escapejs }}'); return false;">About</a>
                         </div>
                         <div class="col-md-4 text-right">
-                            <button class="btn btn-primary" onclick="findClinic('{{ panel.panel_id }}')">Find a Clinic</button>
-                        </div>
+                          
+                          <a class="btn btn-primary" href="{% url 'select_location' panel.id %}">Find a Clinic</a>
+                      </div>
+                      
                     </div>
                 </div>
             </div>
@@ -51,23 +53,44 @@
 </div>
 <!-- About Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="aboutModalLabel">About This Test</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+  <div class="modal-dialog modal-lg" role="document"> <!-- Consider using modal-lg for larger content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="aboutModalLabel">About This Test</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="aboutModalBody">
+        <!-- Dynamic Markdown converted content will be inserted here -->
+        <div id="markdownContent">
+          <!-- Placeholder for markdown content -->
         </div>
-        <div class="modal-body" id="aboutModalBody">
-          <!-- Markdown converted content will be inserted here -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+
+        <!-- MRO and certified laboratory -->
+        <h6>MRO and Certified Laboratory</h6>
+        <p>Our SAMHSA Certified laboratory. Results are reviewed by one of our doctors, toxicology experts who are known as Medical Review Officers (MROs). If any drug is non-negative, the MRO will reach out to the person who took the test to ask for proof of any legal prescriptions. Finally, the MRO will release the final results, which will be reported back to the Employer or the person who set up the test.</p>
+
+        <!-- About drug testing results -->
+        <h6>About Drug Testing Results</h6>
+        <p>The result of your Drug Test is reported in a secure PDF file which detail the list of the tested drugs. For each class of drugs, there is an indication of Positive or Negative. If a drug comes back positive, the specific metabolite which tested positive will be specifically indicated. Quantitative levels for positive results are available upon request. The PDF file can be easily downloaded from our portal, printed, or forwarded. We are also happy to send or fax drug test results to any person, employer, or organization that needs to get a copy of the report.</p>
+
+        <!-- How long do results take? -->
+        <h6>How Long Do Results Take?</h6>
+        <p>Negative Urine drug tests typically come back the next business day, but in some cases can take longer. If the screening is not negative, further testing is required. Our lab will run a GC/MS confirmation test on all non-negatives, which provides an official, quantitative measurement of the level of drugs in the system. Confirmation testing takes approximately 3-5 days.</p>
+
+        <!-- Select A Test Employer Reporting Portal -->
+        <h6>Select A Test Employer Reporting Portal</h6>
+        <p>Business users get free access to our secure Employer eResults Portal, to place orders, view test results, manage employees and eSignature documents (such as policies and procedures), update random drug testing pools, and register for background checks. Non-business clients get results via email and/or fax.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Find a Clinic</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
+
   
 <script>
 {% comment %} function showAboutInfo(aboutText) {
@@ -85,9 +108,12 @@ function findClinic(panelId) {
     var converter = new showdown.Converter();
     function showAboutInfo(markdownContent) {
       var html = converter.makeHtml(markdownContent);
-      document.getElementById('aboutModalBody').innerHTML = html;
+      document.getElementById('markdownContent').innerHTML = html;
       $('#aboutModal').modal('show');
     }
+    var modalBody = document.getElementById('aboutModalBody');
+    modalBody.style.maxHeight = '500px'; // Adjust the max height as needed
+    modalBody.style.overflowY = 'auto';
   </script>
   
 {% endblock %}
