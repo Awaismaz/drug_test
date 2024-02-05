@@ -16,8 +16,10 @@
     <h2>{{ category.name }}</h2>
     <p>{{ category.description }}</p>
     {% for sub_category in category.sub_categories.all %}
-        <h3>{{ sub_category.name }}</h3>
-        <div style="overflow-y: auto; height: 200px;">
+          <hr>
+            <h3 style="background-color:lightblue; text-align: center;">{{ sub_category.name }}</h3>
+          <hr>
+        <div style="overflow-y: auto;">
             {% for panel in sub_category.drug_panels.all %}
             <div class="card mb-3">
                 <div class="card-body">
