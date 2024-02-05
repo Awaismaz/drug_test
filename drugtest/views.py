@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import BusinessUserForm, DonorForm, LocationForm
-from .models import DrugTest
+from .models import DrugTest, DrugCategory
 
 def home(request):
     # Home page with options to select test or site
@@ -30,9 +30,24 @@ def drug_screen(request):
     # Logic for Drug Screen path
     return render(request, 'drugtest/drug_screen.html')
 
+from django.shortcuts import render
+from .models import Service
 
 
-def test_selection(request):
+def services_view(request):
+    selected_service_id = request.GET.get('service_id')
+    services = Service.objects.all()
+    selected_service = None
+    if selected_service_id:
+        selected_service = Service.objects.filter(id=selected_service_id).first()
+    return render(request, 'drugtest/services_page.html', {
+        'services': services,
+        'selected_service': selected_service
+    })
+
+
+
+def test_selection_old(request):
     # Fetch all drug tests
     all_drug_tests = DrugTest.objects.all().order_by('drug_class', 'subdrug')
 
@@ -47,7 +62,7 @@ def test_selection(request):
         if dt.subdrug:
             drug_test_details[dt.drug_class]['sub_drugs'].append(dt)
 
-    return render(request, 'drugtest/test_selection.html', {'drug_tests': drug_test_details})
+    return render(request, 'drugtest/test_selection_old.html', {'drug_tests': drug_test_details})
 
 
 def display_sites(request):
@@ -79,3 +94,15 @@ def select_location(request):
         form = LocationForm()
 
     return render(request, 'drugtest/select_location.html', {'form': form})
+
+
+def drug_category_details(request, category_id):
+    services = Service.objects.all()
+    category = DrugCategory.objects.prefetch_related('sub_categories__drug_panels').get(id=category_id)
+    selected_service = category.service  # Access the parent service directly from the category instance
+    
+    return render(request, 'drugtest/drug_category_details.html', {
+        'category': category,
+        'services': services,
+        'selected_service': selected_service,  # Add the selected_service to the context
+    })

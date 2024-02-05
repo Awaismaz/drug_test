@@ -1,0 +1,22 @@
+{% extends 'drugtest/base.html' %}
+
+{% block content %}
+<div class="services text-center my-3">
+    {% for service in services %}
+        <a href="{% url 'services_view' %}?service_id={{ service.id }}"
+           class="service btn {% if selected_service.id == service.id %}btn-primary{% else %}btn-outline-primary{% endif %} my-2">
+            {{ service.name }}
+        </a>
+    {% endfor %}
+</div>
+
+{% if selected_service %}
+    <div id="options-{{ selected_service.id }}" class="options">
+        {% for category in selected_service.categories.all %}
+            <div class="category-item my-2 p-2 shadow-sm">
+                <a href="{% url 'drug_category_details' category.id %}">{{ category.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,91 @@
+<!-- some_template.html -->
+{% extends 'drugtest/base.html' %}
+
+{% block title %}Page Specific Title{% endblock %}
+
+{% block content %}
+<div class="services text-center my-3">
+  {% for service in services %}
+      <a href="{% url 'services_view' %}?service_id={{ service.id }}"
+         class="service btn {% if selected_service.id == service.id %}btn-primary{% else %}btn-outline-primary{% endif %} my-2">
+          {{ service.name }}
+      </a>
+  {% endfor %}
+</div>
+<div>
+    <h2>{{ category.name }}</h2>
+    <p>{{ category.description }}</p>
+    {% for sub_category in category.sub_categories.all %}
+        <h3>{{ sub_category.name }}</h3>
+        <div style="overflow-y: auto; height: 200px;">
+            {% for panel in sub_category.drug_panels.all %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <!-- First Row for Panel Name and Price -->
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-md-8">
+                            <h5 class="card-title mb-0">{{ panel.name }}</h5>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <p class="card-text"><strong>${{ panel.price }}</strong></p>
+                        </div>
+                    </div>
+                    <!-- Second Row for About and Find a Clinic Button -->
+                    <div class="row justify-content-between align-items-center mt-2">
+                        <div class="col-md-8">
+                            <a href="#" onclick="showAboutInfo('{{ panel.about|escapejs }}'); return false;">About</a>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <button class="btn btn-primary" onclick="findClinic('{{ panel.panel_id }}')">Find a Clinic</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        
+        </div>
+    {% endfor %}
+</div>
+<!-- About Modal -->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutModalLabel">About This Test</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="aboutModalBody">
+          <!-- Markdown converted content will be inserted here -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<script>
+{% comment %} function showAboutInfo(aboutText) {
+    // Implement this function to show about info, possibly with a modal or another UI component
+    alert(aboutText);
+} {% endcomment %}
+
+function findClinic(panelId) {
+    // Implement or redirect to clinic finding functionality
+    console.log("Finding clinic for panel ID:", panelId);
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+<script>
+    var converter = new showdown.Converter();
+    function showAboutInfo(markdownContent) {
+      var html = converter.makeHtml(markdownContent);
+      document.getElementById('aboutModalBody').innerHTML = html;
+      $('#aboutModal').modal('show');
+    }
+  </script>
+  
+{% endblock %}
