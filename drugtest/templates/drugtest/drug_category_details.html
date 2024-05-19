@@ -38,9 +38,16 @@
                             <a href="#" onclick="showAboutInfo('{{ panel.about|escapejs }}'); return false;">About</a>
                         </div>
                         <div class="col-md-4 text-right">
-                          
-                          <a class="btn btn-primary" href="{% url 'select_location' panel.id %}">Find a Clinic</a>
-                      </div>
+                          {% if category.name == "Background Search" %}
+                              <a class="btn btn-primary" href="{% url 'background_search' %}">Register</a>
+                          {% elif panel.name == "Legal DNA Test" %}
+                              <a class="btn btn-primary" href="{% url 'contact' %}">Contact to Schedule</a>
+                          {% elif panel.name == "Home DNA Test" %}
+                              <a class="btn btn-primary" href="{% url 'order_kit' %}">Order your Kit</a>
+                          {% else %}
+                              <a class="btn btn-primary" href="{% url 'select_location' panel.id %}">Find a Clinic</a>
+                          {% endif %}
+                        </div>
                       
                     </div>
                 </div>

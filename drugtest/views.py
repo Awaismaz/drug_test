@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import BusinessUserForm, DonorForm, LocationForm
+from .forms import BusinessUserForm, DonorForm, LocationForm, BackgroundCheckForm
 from .models import DrugTest, DrugCategory
 from django.conf import settings
 import os
@@ -95,6 +95,25 @@ def select_location(request, id):
         form = LocationForm()
 
     return render(request, 'drugtest/select_location.html', {'form': form})
+
+
+def contact(request):
+    pass
+
+def order_kit(request):
+    pass
+
+def background_search(request):
+    if request.method == 'POST':
+        form = BackgroundCheckForm(request.POST)
+        if form.is_valid():
+            # Process the form data (save to database, send email, etc.)
+            # ...
+            return redirect('success_url')  # Replace 'success_url' with your actual success URL
+    else:
+        form = BackgroundCheckForm()
+    
+    return render(request, 'drugtest/background_search.html', {'form': form})
 
 
 def drug_category_details(request, category_id):

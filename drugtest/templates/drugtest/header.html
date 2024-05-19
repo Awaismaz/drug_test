@@ -1,26 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
-    <a class="navbar-brand" href="{% url 'home' %}">Elite Workspace Screening</a>
+{% load static %}
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+        <img src="{% static 'images/selectatestlogo.png' %}" alt="Select a Test Logo" style="height: 100px; margin-top: 5px;">
+        <span style="height: 70px;">Elite Workspace Screening</span>
+      </a>
+    <button  style="margin-top: -30px;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarNav" >
+        <ul style="height: 80px;" class="navbar-nav" >
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary mr-2" href="{% url 'services_view' %}">Drug Tests</a>
+                    <a class="nav-link btn mr-2" href="{% url 'home' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary mr-2" href="#">DNA Tests</a>
+                    <a class="nav-link btn mr-2" href="{% url 'services_view' %}">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary mr-2" href="#">Background Search</a>
+                    <a class="nav-link btn mr-2" href="{% url 'business_user' %}">Business Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary mr-2" href="#">Welness</a>
+                    <a class="nav-link btn mr-2" href="{% url 'donor' %}">Donor Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-outline-primary mr-2" href="#">Resources</a>
+                    <a class="nav-link btn mr-2" href="#">About Us</a>
                 </li>
 
             </ul>
