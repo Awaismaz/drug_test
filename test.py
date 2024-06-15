@@ -8,8 +8,8 @@ client = Client(wsdl=wsdl_path)
 
 # Example: Calling the Locate Collection Sites API
 # Replace 'your_zip_code' with the actual zip code
-response = client.service.locateCollectionSites(userId='ESITESTING', password='solutions4me', zip='10001', distance=99)
-# response = client.service.changePassword(userId='ESITESTING', password='solutions4you', newPassword='solutions4me')
+response = client.service.locateCollectionSites(userId='ESITESTING', password='Solutions4mee!', zip='10001', distance=99)
+# response = client.service.changePassword(userId='ESITESTING', password='solutions4me', newPassword='Solutions4mee!')
 
 
 # Process the response

@@ -17,7 +17,13 @@ def reload_web_app():
     return response.ok
 
 def main():
-    console_id = 29813505
+    console_id = 32786310
+
+    if send_console_command(console_id, "git stash"):
+        print("Git stash command sent successfully.")
+    else:
+        print("Failed to send git stash command.")
+
     if send_console_command(console_id, "git pull"):
         print("Git pull command sent successfully.")
     else:

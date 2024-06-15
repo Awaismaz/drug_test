@@ -82,7 +82,7 @@ def select_location(request, id):
             client = Client(wsdl=wsdl_path)
             response = client.service.matchSites(
                 userId='ESITESTING', 
-                password='solutions4me', 
+                password='Solutions4mee!', 
                 zipCode=form.cleaned_data['zip_code'], 
                 searchRadius=form.cleaned_data['distance_choices']
             )
